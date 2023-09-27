@@ -1,0 +1,9 @@
+{'id': '/subscriptions/9ebecd4e-56ec-4261-a325-f77f0cf57afd/resourceGroups/Bicep-rg', 
+'location': 'eastus', 
+'managedBy': None, 
+'name': 'Bicep-rg', 
+'properties': 
+{'provisioningState': 'Succeeded'
+    }, 'tags': {'language': 'Bicep', 'type': 'ResourceGroup'
+    }, 'type': 'Microsoft.Resources/resourceGroups'
+}
