@@ -17,6 +17,5 @@ def az_cli (args_str):
         raise cli.result.error
     return True
 
-response = az_cli(f'databricks workspace create --resource-group {DBX_RG} --name {WORKSPACE_NAME} --location {DBX_LOCATION} --sku {DBX_SKU}')
-print(response)
+dbx_response = az_cli(f'databricks workspace create --resource-group {DBX_RG} --name {WORKSPACE_NAME} --location {DBX_LOCATION} --sku {DBX_SKU}')
 
