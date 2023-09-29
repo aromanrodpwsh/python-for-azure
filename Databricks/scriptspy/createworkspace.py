@@ -3,11 +3,11 @@ import getopt
 import json
 from azure.cli.core import get_default_cli
 
-DBX_RG ="DBX-RG"
-WORKSPACE_NAME = "DBX-DEVOPS-WORKSPACE1"
-DBX_LOCATION = "eastus"
-DBX_SKU = "Standard"
-DBX_VAULT= "MainkvDbx"
+DBX_RG =""
+WORKSPACE_NAME = ""
+DBX_LOCATION = ""
+DBX_SKU = ""
+DBX_VAULT= ""
 
 
 def az_cli (args_str):
@@ -26,9 +26,11 @@ def main(argv):
         global DBX_RG, WORKSPACE_NAME, DBX_LOCATION, DBX_SKU, DBX_VAULT
         USAGE_MSJ = 'createworkspace.py -w <WorkspaceName> -r <resourceGroup> -l <location> -s <sku> -v <KeyVault> '
         WORKSPACE_NAME = ''
-
-        opts, args = getopt.getopt(argv, "hw:r:l:s:v:", [
-                                   "WorkspaceName=", "resourceGroup=", "location=", "sku=", "KeyVault="])
+        DBX_RG = ''
+        DBX_LOCATION = ''
+        DBX_SKU = ''
+        DBX_VAULT = ''
+        opts, args = getopt.getopt(argv, "hw:r:l:s:v:", ["WorkspaceName=", "resourceGroup=", "location=", "sku=", "KeyVault="])
 
         for opt, arg in opts:
             if opt == '-h':
