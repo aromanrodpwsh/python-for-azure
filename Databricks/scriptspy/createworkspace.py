@@ -20,16 +20,6 @@ def az_cli (args_str):
         raise cli.result.error
     return True
 
-dbx_response = az_cli(f'databricks workspace create --resource-group {DBX_RG} --name {WORKSPACE_NAME} --location {DBX_LOCATION} --sku {DBX_SKU}')
-DBX_RESOURCE_ID= dbx_response['id']
-DBX_WORKSPACE_URL=dbx_response['workspaceUrl']
-
-print(f'Worspace successfully created with Resource Id: {DBX_RESOURCE_ID}')
-print(f'Worspace successfully created with Resource Id: {DBX_WORKSPACE_URL}')
-
-print('updating secrets to KeyVault: Workspace id and Workspace url')
-az_cli(f'keyvault secret set --name dbx-workspace-id --vault-name {DBX_VAULT} --value {DBX_RESOURCE_ID}')
-az_cli(f'keyvault secret set --name dbx-workspace-url --vault-name {DBX_VAULT} --value {DBX_WORKSPACE_URL}')
 
 def main(argv):
     try:
@@ -78,7 +68,22 @@ def main(argv):
                 print('This arg is not valid [', opt, ']')
                 print(USAGE_MSJ)
                 sys.exit(2)
+        #dbx_response = az_cli(f'databricks workspace create --resource-group {DBX_RG} --name {WORKSPACE_NAME} --location {DBX_LOCATION} --sku {DBX_SKU}')
+        #DBX_RESOURCE_ID= dbx_response['id']
+        #DBX_WORKSPACE_URL=dbx_response['workspaceUrl']
+        DBX_RESOURCE_ID='test cualquier cosa'
+        DBX_WORKSPACE_URL='tsts otra cosa'
 
+        print(f'Worspace successfully created with Resource Id: {DBX_RESOURCE_ID}')
+        print(f'Worspace successfully created with Resource Id: {DBX_WORKSPACE_URL}')
+
+        print('updating secrets to KeyVault: Workspace id and Workspace url')
+        #az_cli(f'keyvault secret set --name dbx-workspace-id --vault-name {DBX_VAULT} --value {DBX_RESOURCE_ID}')
+        #az_cli(f'keyvault secret set --name dbx-workspace-url --vault-name {DBX_VAULT} --value {DBX_WORKSPACE_URL}')
+
+    except getopt.GetoptError:
+        print(USAGE_MSJ)
+        sys.exit(2)
 
 if __name__ == "__main__":
     main(sys.argv[1:])
