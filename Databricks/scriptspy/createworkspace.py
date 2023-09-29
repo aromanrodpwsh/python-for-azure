@@ -1,10 +1,10 @@
+import sys
 from azure.cli.core import get_default_cli
 
-DBX_RG="Databricks-RG"
-WORKSPACE_NAME='DBX-DEVOPS-WORKSPACE1'
-DBX_LOCATION='EastUS'
-DBX_SKU = 'standard'
-
+DBX_RG ="DBX-RG"
+WORKSPACE_NAME = "DBX-DEVOPS-WORKSPACE1"
+DBX_LOCATION = "eastus"
+DBX_SKU = "Standard"
 
 
 def az_cli (args_str):
@@ -17,5 +17,6 @@ def az_cli (args_str):
         raise cli.result.error
     return True
 
-response = az_cli("databricks workspace create --resource-group '{DBX_RG}' --name '{WORKSPACE_NAME}' --location '{DBX_LOCATION}' --sku '{DBX_SKU}'")
+response = az_cli(f'databricks workspace create --resource-group {DBX_RG} --name {WORKSPACE_NAME} --location {DBX_LOCATION} --sku {DBX_SKU}')
 print(response)
+
