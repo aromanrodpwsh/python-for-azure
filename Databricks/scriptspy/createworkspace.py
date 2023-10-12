@@ -31,7 +31,6 @@ def main(argv):
         DBX_SKU = ''
         DBX_VAULT = ''
         opts, args = getopt.getopt(argv, "hw:r:l:s:v:", ["WorkspaceName=", "resourceGroup=", "location=", "sku=", "KeyVault="])
-
         for opt, arg in opts:
             if opt == '-h':
                 print(USAGE_MSJ)
@@ -39,6 +38,7 @@ def main(argv):
             elif opt in ("-w", "--WorkspaceName"):
                 if arg != '':
                     WORKSPACE_NAME = arg
+                    print('what '+WORKSPACE_NAME)
                 else:
                     print('Parameter <WorkspaceName> is empty')
                     sys.exit(2)
